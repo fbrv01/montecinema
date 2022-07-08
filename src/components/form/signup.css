@@ -1,0 +1,23 @@
+.form {
+    background: lightgreen;
+    width: 600px;
+    padding: 4rem;
+}
+
+.form label {
+    background: lightpink;
+    color: #F47073;
+    display: block;
+    font-family: var(--second-font);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.form input {
+    border: none;
+    background: lightskyblue;
+    width: 100%;
+    padding: 17.5px 24px;
+}

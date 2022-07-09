@@ -159,7 +159,8 @@ background: #A60C0E;
 }
 
 .button:active {
-  border: 5px solid #F47073;
+/*   border: 5px solid #F47073; */
+  box-shadow:0 0 0 5px #F47073 inset;
 }
 
 .button--login {

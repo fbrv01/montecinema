@@ -1,100 +1,110 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+	validateEmailFormat,
+	validatePassword,
+	checkPassLength,
+	checkPassAlphabet,
+	checkPassDigit,
+} from "./formHelper";
+import eye from "../../medias/elements/eye.png";
 
-const FormEmail = ({ formData, setFormData, handleNextPage }) => {
-  const checkPassLength = (str) => {
-    return str.length >= 8;
-  };
+const FormEmail = ({ formData, setFormData, handleNextPage, page }) => {
+	const [seePassword, setSeePassword] = useState(false);
 
-  const checkPassAlphabet = (str) => {
-    return str.length >= 1 && str.match(/[a-z]/i);
-  };
+	const colors = {
+		gray: "#343541",
+		green: "#27AE60",
+		red: "#EC1115",
+	};
 
-  const checkPassDigit = (str) => {
-    return str.match(/\d/);
-  };
+	return (
+		<>
+			<div className="form__label">
+				<label htmlFor="">Email</label>
+				<input
+					type="text"
+					placeholder="Something ending with monterail.com"
+					value={formData.email}
+					onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+				/>
+			</div>
+			<div className="form__label">
+				<label htmlFor="">Password</label>
+				<span id="form__password-frame">
+					<input
+						id="form__password-input"
+						type={seePassword ? "text" : "password"}
+						placeholder="Enter your password"
+						value={formData.password}
+						onChange={(e) =>
+							setFormData({ ...formData, password: e.target.value })
+						}
+					/>
+					<img
+						src={eye}
+						id="form__password-input-eye"
+						onClick={() => setSeePassword(!seePassword)}
+						alt="show password"
+					/>
+				</span>
 
-  const validatePassword = () => {
-    return (
-      checkPassLength(formData.password) &&
-      checkPassAlphabet(formData.password) &&
-      checkPassDigit(formData.password)
-    );
-  };
-
-  return (
-    <>
-      <div>
-        <label htmlFor="">Email</label>
-        <input
-          required
-          type="email"
-          placeholder="Something ending with monterail.com"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-        />
-      </div>
-      <div>
-        <label htmlFor="">Password</label>
-        <input
-          required
-          type="password"
-          placeholder="Enter your password"
-          value={formData.password}
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
-        />
-        <p
-          style={{
-            color:
-              formData.password === ""
-                ? "black"
-                : checkPassLength(formData.password)
-                ? "green"
-                : "red",
-          }}
-        >
-          At least 8 characters
-        </p>
-        <p
-          style={{
-            color:
-              formData.password === ""
-                ? "black"
-                : checkPassAlphabet(formData.password)
-                ? "green"
-                : "red",
-          }}
-        >
-          At least one letter
-        </p>
-        <p
-          style={{
-            color:
-              formData.password === ""
-                ? "black"
-                : checkPassDigit(formData.password)
-                ? "green"
-                : "red",
-          }}
-        >
-          At least one digit
-        </p>
-      </div>
-
-      <button> Log in instead </button>
-      <button
-        onClick={(e) => {
-          if (formData.email !== "" && validatePassword()) {
-            handleNextPage(0);
-            e.preventDefault();
-          }
-        }}
-      >
-        Next Step
-      </button>
-    </>
-  );
+				<aside>
+					<p
+						style={{
+							color:
+								formData.password === ""
+									? colors.gray
+									: checkPassLength(formData.password)
+									? colors.green
+									: colors.red,
+						}}
+					>
+						At least 8 characters
+					</p>
+					<p
+						style={{
+							color:
+								formData.password === ""
+									? colors.gray
+									: checkPassAlphabet(formData.password)
+									? colors.green
+									: colors.red,
+						}}
+					>
+						At least one letter
+					</p>
+					<p
+						style={{
+							color:
+								formData.password === ""
+									? colors.gray
+									: checkPassDigit(formData.password)
+									? colors.green
+									: colors.red,
+						}}
+					>
+						At least one digit
+					</p>
+				</aside>
+			</div>
+			<div className="form__button">
+				<a className="button--login">Log in instead</a>
+				<button className="button"
+					onClick={(e) => {
+						if (
+							formData.email !== "" && 
+							validateEmailFormat(formData.email) &&
+							validatePassword()
+						) {
+							handleNextPage(page);
+						}
+					}}
+				>
+					Next Step
+				</button>
+			</div>
+		</>
+	);
 };
 
 export default FormEmail;

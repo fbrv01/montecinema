@@ -38,6 +38,12 @@
     max-height: 3.5rem;
 }
 
+.form input:focus {
+    border: 1px solid #2F80ED;
+    outline: none;
+}
+
+
 .form input[type="password"] {
     font-weight: 800;
     letter-spacing: 0.2em;
@@ -76,16 +82,15 @@
 }
 
 #form__password-input-eye:hover {
-    filter: drop-shadow(3px 3px 8px rgba(75, 75, 75, 0.685));
+    filter: drop-shadow(3px 3px 8px rgba(75, 75, 75, 0.842));
     transition: ease-in-out .3s;
 }
 
 .form aside {
     padding-bottom: 2.3rem;
-    margin-top: -10px;
+    margin-top: 10px;
     font-family: var(--main-font);
     font-weight: 400;
     font-size: 14px;
     color: var(--gray-tuna);
 }
-

@@ -1,11 +1,16 @@
 .form {
-    background: lightgreen;
+    background: white;
     width: 600px;
     padding: 4rem;
+    box-shadow: 0px 4px 22px rgba(52, 53, 65, 0.15);
+    border-radius: 24px;
+}
+
+.form__label {
+    margin-bottom: 1.5rem;
 }
 
 .form label {
-    background: lightpink;
     color: #F47073;
     display: block;
     font-family: var(--second-font);
@@ -13,11 +18,74 @@
     font-size: 14px;
     line-height: 18px;
     text-transform: uppercase;
+    margin-bottom: 0.75rem;
 }
 
 .form input {
+    display: flex;
+    align-items: center;
     border: none;
-    background: lightskyblue;
     width: 100%;
     padding: 17.5px 24px;
+    /*     margin-bottom: 1.5rem; */
+    border-radius: 8px;
+    background: #F7F7F7;
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #343541;
+    max-height: 3.5rem;
 }
+
+.form input[type="password"] {
+    font-weight: 800;
+    letter-spacing: 0.2em;
+}
+
+
+.form input::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: normal;
+    margin: 0;
+    padding: 0;
+}
+
+#form__password-frame {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #F7F7F7;
+    /*       border: 1px solid red; */
+    border-radius: 8px;
+}
+
+#form__password-input {
+    display: inline;
+    /*       border: 1px solid blue; */
+    width: 100%;
+}
+
+#form__password-input-eye {
+    position: absolute;
+    right: 1em;
+    display: inline;
+    cursor: pointer;
+    transition: ease-in .2s;
+}
+
+#form__password-input-eye:hover {
+    filter: drop-shadow(3px 3px 8px rgba(75, 75, 75, 0.685));
+    transition: ease-in-out .3s;
+}
+
+.form aside {
+    padding-bottom: 2.3rem;
+    margin-top: -10px;
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--gray-tuna);
+}
+

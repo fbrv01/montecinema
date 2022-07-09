@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500&display=swap');
 
 /* CSS RESET */
@@ -115,6 +115,7 @@ section {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ol,
@@ -164,7 +165,6 @@ background: #A60C0E;
 .button--login {
   display:inline-block;
   width: 50%;
-  border: 1px solid #eee;
   padding: 19px 0;
   color: var(--cherry-red);
   font-family: var(--second-font);

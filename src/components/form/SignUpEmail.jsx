@@ -1,8 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import "./signup.css";
+import eye from "../../medias/elements/eye.png";
 
 const SignUpEmail = () => {
+
+	const colors = {
+		gray : "#343541",
+		green : "#27AE60",
+		red : "#EC1115"
+	}
+
 	const [nextStep, setNextStep] = useState(false);
 	const [seePassword, setSeePassword] = useState(false);
 
@@ -34,22 +42,33 @@ const SignUpEmail = () => {
 			</div>
 			<div className="form__label">
 				<label htmlFor="">PASSWORD</label>
-				<input
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					type={seePassword ? "text" : "password"}
-					placeholder="Enter your password"
-				/>
-				{/* THIS BUTTON WILL BE CHANGED INTO ICON */}
-				<button onClick={() => setSeePassword(!seePassword)}>See</button>
+
+				<span id="form__password-frame">
+					<input
+						id="form__password-input"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						type={seePassword ? "text" : "password"}
+						placeholder="Enter your password"
+					/>
+					<img
+						src={eye}
+						id="form__password-input-eye"
+						onClick={() => setSeePassword(!seePassword)}
+						alt="show password"
+					/>
+				</span>
+			</div>
+
+			<aside>
 				<p
 					style={{
 						color:
-							password.length == ""
-								? "black"
+							password === ""
+								? colors.gray
 								: checkPassLength(password)
-								? "green"
-								: "red",
+								? colors.green
+								: colors.red
 					}}
 				>
 					At least 8 characters
@@ -57,11 +76,11 @@ const SignUpEmail = () => {
 				<p
 					style={{
 						color:
-							password.length == ""
-								? "black"
+							password === ""
+								? colors.gray
 								: checkPassAlphabet(password)
-								? "green"
-								: "red",
+								? colors.green
+								: colors.red
 					}}
 				>
 					At least one letter
@@ -69,16 +88,17 @@ const SignUpEmail = () => {
 				<p
 					style={{
 						color:
-							password.length == ""
-								? "black"
+							password === ""
+								? colors.gray
 								: checkPassDigit(password)
-								? "green"
-								: "red",
+								? colors.green
+								: colors.red
 					}}
 				>
 					At least one digit
 				</p>
-			</div>
+			</aside>
+			
 			<div className="form__button">
 				<a className="button--login">Log in instead</a>
 				<button className="button">Next step</button>

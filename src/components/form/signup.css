@@ -1,45 +1,72 @@
+.register {
+    width: 37.5rem;
+}
+
 .form {
     background: white;
-    width: 600px;
     padding: 4rem;
-    box-shadow: 0px 4px 22px rgba(52, 53, 65, 0.15);
-    border-radius: 24px;
+    box-shadow: 0rem .25rem 1.375rem rgba(52, 53, 65, 0.15);
+    border-radius: 1.5rem;
+}
+
+.form__message {
+    margin: 0 0 2.5rem 0;
+}
+
+
+.form__message span{
+    display: block;
+    font-family: 'Eczar';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5rem;
+    line-height: 5.125rem;
+    letter-spacing: -0.01em;
+    color: var(--gray-tuna);
+}
+
+.form__message span:nth-child(2) {
+    color: var(--gray-jumbo);
+    white-space: nowrap;
 }
 
 .form__label {
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
 }
 
-.form label {
+.form__label>label {
     color: #F47073;
     display: block;
     font-family: var(--second-font);
     font-weight: 700;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 1.125rem;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
 }
 
-.form input {
+.form__label input {
     display: flex;
     align-items: center;
     border: none;
     width: 100%;
-    padding: 17.5px 24px;
+    padding: 17.5px 1.5rem;
     /*     margin-bottom: 1.5rem; */
-    border-radius: 8px;
+    border-radius: .5rem;
     background: #F7F7F7;
     font-family: var(--main-font);
     font-weight: 400;
     font-size: 18px;
-    line-height: 21px;
+    line-height: 1.3125rem;
     color: #343541;
-    max-height: 3.5rem;
+    cursor: text;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .form input:focus {
-    border: 1px solid #2F80ED;
+    border: .0625rem solid #2F80ED;
     outline: none;
 }
 
@@ -56,6 +83,7 @@
     letter-spacing: normal;
     margin: 0;
     padding: 0;
+    text-overflow: ellipsis;
 }
 
 #form__password-frame {
@@ -63,13 +91,14 @@
     display: flex;
     align-items: center;
     background: #F7F7F7;
-    /*       border: 1px solid red; */
-    border-radius: 8px;
+    /*       border: .0625rem solid red; */
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
 }
 
 #form__password-input {
     display: inline;
-    /*       border: 1px solid blue; */
+    /*       border: .0625rem solid blue; */
     width: 100%;
 }
 
@@ -82,15 +111,121 @@
 }
 
 #form__password-input-eye:hover {
-    filter: drop-shadow(3px 3px 8px rgba(75, 75, 75, 0.842));
+    filter: drop-shadow(.1875rem .1875rem .5rem rgba(75, 75, 75, 0.842));
     transition: ease-in-out .3s;
 }
 
 .form aside {
     padding-bottom: 2.3rem;
-    margin-top: 10px;
+    margin-top: -0.75rem;
+}
+
+.form aside p {
+    line-height: 1.5rem;
     font-family: var(--main-font);
-    font-weight: 400;
     font-size: 14px;
     color: var(--gray-tuna);
+    letter-spacing: 0.04em;
+}
+
+.form aside>span {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0 0 0;
+    position: relative;
+}
+
+.form aside label {
+    /* border: .3125rem solid rgb(255, 0, 0); */
+    font-family: 'Roboto';
+    font-size: 1.125rem;
+    line-height: 1.3125rem;
+    cursor: pointer;
+}
+
+.form aside label span {
+    text-decoration: underline;
+}
+
+
+
+input[type="checkbox"i] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: .0625rem solid #AEAEB3;
+    border-radius: .5rem;
+    margin-right: .75rem;
+    transition: 120ms ease-in-out;
+    cursor: pointer;
+}
+
+input[type="checkbox"i]:checked {
+    padding: .1875rem;
+    appearance: none;
+    background-color: #F47073;
+    box-shadow: 0 0 0 .25rem #fff inset;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .5rem;
+    margin-right: .75rem;
+    transition: 120ms ease-in-out;
+}
+
+input[type="checkbox"i]:focus {
+    border: .0625rem solid #AEAEB3;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .register {
+        width: 89vw;
+    }
+
+    .form__message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form__message span{
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+
+    .form__buttons {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .form {
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .form input::placeholder {
+        max-width: 200px;
+    }
+
+    .form aside {
+        margin-top: 0;
+    }
+    
+
 }

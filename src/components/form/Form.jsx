@@ -71,13 +71,15 @@ const Form = () => {
 	};
 
 	return (
-	  <>
-			<h1>{formMainTitles[page]}</h1>
-			<h1>{formSubTitles[page]}</h1>
+	  <section className="register">
+			<div className="form__message">
+				<span>{formMainTitles[page]}</span>
+				<span>{formSubTitles[page]}</span>
+			</div>
 			<form onSubmit={handleSubmit} className="form">
 				{pageDisplay()}
 			</form>
-		</>
+		</section>
 	);
 };
 

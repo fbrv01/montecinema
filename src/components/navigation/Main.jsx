@@ -4,9 +4,9 @@ import './main.css'
 
 const Main = () => {
   return (
-    <section className='main'>
+    <main className='main'>
       <Form />
-    </section>
+    </main>
   )
 }
 

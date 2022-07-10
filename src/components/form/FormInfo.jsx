@@ -35,13 +35,20 @@ const FormInfo = ({ formData, setFormData }) => {
 					}
 				/>
 			</div>
-			<div>
-				<input type="checkbox" />
-				<span>I accept Privacy Policy</span>
-			</div>
+			<aside>
+				<p>You should be minimum 18 years old</p>
+				<span>
+					<input type="checkbox" id="policy" name="policy" />
+					<label for="policy">
+						I accept <span>Privacy Policy</span>
+					</label>
+				</span>
+			</aside>
 
-			<div className="form__button">
-				<a className="button--login">Log in instead</a>
+			<div className="form__buttons">
+				<a className="button--login" href="./">
+					Log in instead
+				</a>
 				<button className="button">Register</button>
 			</div>
 		</>

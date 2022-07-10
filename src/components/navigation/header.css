@@ -1,10 +1,10 @@
 .header {
     width: 100%;
+    height: 98px;
     display: flex;
-    border: 1px solid rgb(255, 150, 150);
     justify-content: space-between;
     align-items: center;
-    padding: 30.38px 48px;
+    padding: 0 48px;
 }
 
 .header__message {
@@ -17,3 +17,15 @@
     letter-spacing: 0.03em;
     text-transform: uppercase;
 }
+
+@media screen and (max-width: 600px) {
+
+    .header {
+        justify-content: center;
+    }
+    
+
+    .header__message {
+      display:none;
+    }
+  }

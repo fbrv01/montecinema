@@ -8,7 +8,7 @@ import {
 } from "./formHelper";
 import eye from "../../medias/elements/eye.png";
 
-const FormEmail = ({ formData, setFormData, handleNextPage, page }) => {
+const FormEmail = ({ formData, setFormData, handleNextPage, page,formErrors }) => {
 	const [seePassword, setSeePassword] = useState(false);
 
 	const colors = {
@@ -27,6 +27,7 @@ const FormEmail = ({ formData, setFormData, handleNextPage, page }) => {
 					value={formData.email}
 					onChange={(e) => setFormData({ ...formData, email: e.target.value })}
 				/>
+				<p>{formErrors.email}</p>
 			</div>
 			<div className="form__label">
 				<label htmlFor="">Password</label>
@@ -87,8 +88,8 @@ const FormEmail = ({ formData, setFormData, handleNextPage, page }) => {
 					</p>
 				</aside>
 			</div>
-			<div className="form__button">
-				<a className="button--login">Log in instead</a>
+			<div className="form__buttons">
+				<a className="button--login" href="./">Log in instead</a>
 				<button className="button"
 					onClick={(e) => {
 						if (

@@ -1,5 +1,8 @@
 .main {
-    background: lightblue;
+/*     background: lightblue; */
+    min-height: calc(100vh - 98px);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }

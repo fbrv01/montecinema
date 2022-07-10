@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500&display=swap');
 
 /* CSS RESET */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -112,10 +114,15 @@ section {
   display: block;
 }
 
+html {
+  min-height: 100vh;
+}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 ol,
@@ -155,16 +162,16 @@ ul {
 }
 
 .button:hover {
-background: #A60C0E;
+  background: #A60C0E;
 }
 
 .button:active {
-/*   border: 5px solid #F47073; */
-  box-shadow:0 0 0 5px #F47073 inset;
+  /*   border: 5px solid #F47073; */
+  box-shadow: 0 0 0 5px #F47073 inset;
 }
 
 .button--login {
-  display:inline-block;
+  display: inline-block;
   width: 50%;
   padding: 19px 0;
   color: var(--cherry-red);
@@ -173,5 +180,24 @@ background: #A60C0E;
   font-weight: 500;
   font-size: 18px;
   letter-spacing: 0.015em;
-  text-align: center
+  text-align: center;
+  white-space: nowrap;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .button {
+    width: 100%;
+  }
+
+  .button--login {
+    width: 100%;
+  }
+
+
 }

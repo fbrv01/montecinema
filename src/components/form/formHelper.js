@@ -28,6 +28,16 @@ export const validate = (values) => {
         errors.lastname = "Last name is required !"
     }
 
+    if (!values.dateOfBirth) {
+        errors.dateOfBirth = "Date of birth is required !"
+    } else if (!ageValidate(values.dateOfBirth)) {
+        errors.dateOfBirth = "You should be minimum 18 years old !"
+    }
+
+    if (!values.isCheck) {
+        errors.isCheck = "Check is needed"
+    }
+
     return errors;
 
 }
@@ -62,4 +72,17 @@ export const validatePassword = () => {
 
 export const validateEmailFormat = (email) => {
     return emailRegex.test(email)
+}
+
+
+const ageValidate = (birthday) => {
+
+    let optimizedBirthday = birthday.replace(/-/g, "/");
+    let newBirthday = new Date(optimizedBirthday);
+
+    let currentDate = new Date().toJSON().slice(0, 10);
+    let userAge = ~~((Date.now(currentDate) - newBirthday) / (31557600000))
+
+    return userAge < 18 ? false : true
+
 }

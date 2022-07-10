@@ -38,8 +38,10 @@ const FormInfo = ({ formData, setFormData }) => {
 			<aside>
 				<p>You should be minimum 18 years old</p>
 				<span>
-					<input type="checkbox" id="policy" name="policy" />
-					<label for="policy">
+					<input type="checkbox" id="policy" name="policy" onChange={(e) =>
+						setFormData({ ...formData, isCheck: e.target.checked })
+					}  />
+					<label htmlFor="policy">
 						I accept <span>Privacy Policy</span>
 					</label>
 				</span>

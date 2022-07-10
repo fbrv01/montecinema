@@ -14,7 +14,7 @@
 }
 
 
-.form__message span{
+.form__message h4 {
     display: block;
     font-family: 'Eczar';
     font-style: normal;
@@ -25,10 +25,41 @@
     color: var(--gray-tuna);
 }
 
-.form__message span:nth-child(2) {
+.form__success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+}
+
+.form__success-message p {
+    text-align: center;
+    line-height: 21px;
+    font-family: var(--main-font);
+    font-size: 18px;
+    color: #292A33;
+}
+
+
+
+.form__success-message h4 {
+    display: block;
+    font-family: 'Eczar';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5rem;
+    line-height: 5.125rem;
+    letter-spacing: -0.01em;
+    color: var(--gray-tuna);
+    white-space: nowrap;
+}
+
+.form__message h4:nth-child(2) {
     color: var(--gray-jumbo);
     white-space: nowrap;
 }
+
+
 
 .form__label {
     margin-bottom: 24px;
@@ -51,7 +82,6 @@
     border: none;
     width: 100%;
     padding: 17.5px 1.5rem;
-    /*     margin-bottom: 1.5rem; */
     border-radius: .5rem;
     background: #F7F7F7;
     font-family: var(--main-font);
@@ -65,8 +95,13 @@
     white-space: nowrap;
 }
 
+.form__label input:hover {
+    background: #E5E5E5;
+}
+
 .form input:focus {
     border: .0625rem solid #2F80ED;
+    background: rgba(47, 128, 237, 0.1);
     outline: none;
 }
 
@@ -108,6 +143,8 @@
     display: inline;
     cursor: pointer;
     transition: ease-in .2s;
+    pointer-events: stroke;
+    user-select: none;
 }
 
 #form__password-input-eye:hover {
@@ -167,7 +204,7 @@ input[type="checkbox"i] {
 input[type="checkbox"i]:checked {
     padding: .1875rem;
     appearance: none;
-    background-color: #F47073;
+    background: rgba(47, 129, 237, 0.548);
     box-shadow: 0 0 0 .25rem #fff inset;
     margin: 0;
     font: inherit;
@@ -202,7 +239,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         align-items: center;
     }
 
-    .form__message span{
+    .form__message h4 {
         font-size: 2.5rem;
         line-height: 3rem;
     }
@@ -226,6 +263,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .form aside {
         margin-top: 0;
     }
-    
+
+    .form__success-message {
+        max-width: 88vw;
+    }
+
+    .form__success-message h4 {
+        font-size: 40px;
+    }
 
 }

@@ -3,10 +3,11 @@ import FormEmail from "./FormEmail";
 import FormInfo from "./FormInfo";
 import Success from "./Success";
 import { validate } from "./formHelper";
-import './signup.css'
+import "./signup.css";
 
 const Form = () => {
-	const [page, setPage] = useState(0);
+	const maxPage = 2;
+	const [page, setPage] = useState(1);
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
 	const [formData, setFormData] = useState({
@@ -15,9 +16,10 @@ const Form = () => {
 		firstname: "",
 		lastname: "",
 		dateOfBirth: "",
+		isCheck: false
 	});
 
-	const formMainTitles = ["Ahoy you!","Great!",`Good job ${formData.firstname}`];
+	const formMainTitles = ["Ahoy you!", "Great!"];
 	const formSubTitles = ["Care to register?", "Now your name"];
 
 	const handleNextPage = (currentPage) => {
@@ -42,7 +44,7 @@ const Form = () => {
 
 	const pageDisplay = () => {
 		switch (page) {
-			case 0:
+			case 1:
 				return (
 					<FormEmail
 						formData={formData}
@@ -53,7 +55,7 @@ const Form = () => {
 					/>
 				);
 
-			case 1:
+			case 2:
 				return (
 					<FormInfo
 						formData={formData}
@@ -61,24 +63,26 @@ const Form = () => {
 						formErrors={formErrors}
 					/>
 				);
-
-			case 2:
-				return <Success formData={formData} />;
-
 			default:
-				console.log("hello");
+				return;
 		}
 	};
 
 	return (
-	  <section className="register">
-			<div className="form__message">
-				<span>{formMainTitles[page]}</span>
-				<span>{formSubTitles[page]}</span>
-			</div>
-			<form onSubmit={handleSubmit} className="form">
-				{pageDisplay()}
-			</form>
+		<section className="register">
+			{page > maxPage ? (
+				<Success formData={formData} />
+			) : (
+				<>
+					<div className="form__message">
+						<h4>{formMainTitles[page - 1]}</h4>
+						<h4>{formSubTitles[page - 1]}</h4>
+					</div>
+					<form onSubmit={handleSubmit} className="form">
+						{pageDisplay()}
+					</form>
+				</>
+			)}
 		</section>
 	);
 };

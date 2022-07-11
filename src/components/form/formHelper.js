@@ -12,32 +12,32 @@ export const validate = (values) => {
     const errors = {};
 
     if (!values.email) {
-        errors.email = "Email is required !";
+        errors.email = "Email is required!";
     } else if (!emailRegex.test(values.email)) {
-        errors.email = "Email with valid format is required !"
+        errors.email = "Email with valid format is required!"
     }
 
     if (!values.password) {
-        errors.password = "Password is required !"
+        errors.password = "Password is required!"
     }
 
     if (!values.firstname) {
         errors.firstname = "firstname is required!";
     } else if (!nameRegex.test(values.firstname)) {
-        errors.firstname = "First name with valid format is required! !";
+        errors.firstname = "First name with valid format is required!";
     }
 
 
     if (!values.lastname) {
         errors.lastname = "lastname is required!";
     }      else if (!nameRegex.test(values.lastname)) {
-        errors.lastname = "Last name with valid format is required! !";
+        errors.lastname = "Last name with valid format is required!";
     }
 
     if (!values.dateOfBirth) {
-        errors.dateOfBirth = "Date of birth is required !"
+        errors.dateOfBirth = "Date of birth is required!"
     } else if (!ageValidate(values.dateOfBirth)) {
-        errors.dateOfBirth = "You should be minimum 18 years old !"
+        errors.dateOfBirth = "You should be minimum 18 years old!"
     }
 
     if (!values.isCheck) {

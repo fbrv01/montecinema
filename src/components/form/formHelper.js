@@ -8,45 +8,61 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^/s@]{2,}$/i;
 const nameRegex = /^[\p{L} ,.'-]+$/u;
 
 
-export const validate = (values) => {
+export const validateStep1 = (values) => {
     const errors = {};
 
     if (!values.email) {
-        errors.email = "Email is required!";
+        errors.email = "Email is required";
     } else if (!emailRegex.test(values.email)) {
-        errors.email = "Email with valid format is required!"
+        errors.email = "Email with valid format is required"
     }
 
     if (!values.password) {
-        errors.password = "Password is required!"
-    }
-
-    if (!values.firstname) {
-        errors.firstname = "firstname is required!";
-    } else if (!nameRegex.test(values.firstname)) {
-        errors.firstname = "First name with valid format is required!";
-    }
-
-
-    if (!values.lastname) {
-        errors.lastname = "lastname is required!";
-    }      else if (!nameRegex.test(values.lastname)) {
-        errors.lastname = "Last name with valid format is required!";
-    }
-
-    if (!values.dateOfBirth) {
-        errors.dateOfBirth = "Date of birth is required!"
-    } else if (!ageValidate(values.dateOfBirth)) {
-        errors.dateOfBirth = "You should be minimum 18 years old!"
-    }
-
-    if (!values.isCheck) {
-        errors.isCheck = "Check is needed"
+        errors.password = "Password is required"
+    } 
+    
+    else if (!checkPassLength(values.password) || !checkPassAlphabet(values.password) || !checkPassDigit(values.password)) {
+        errors.passwords = true
     }
 
     return errors;
 
 }
+
+export const validateStep2 = (values) => {
+
+    const errors = {};
+
+    if (!values.firstname) {
+        errors.firstname = "First name is required!";
+
+    } else if (!nameRegex.test(values.firstname)) {
+        errors.firstname = "First name with valid format is required";
+    }
+
+    if (!values.lastname) {
+        errors.lastname = "Last name is required!";
+    }      else if (!nameRegex.test(values.lastname)) {
+        errors.lastname = "Last name with valid format is required";
+    }
+
+    if (!values.dateOfBirth) {
+        errors.dateOfBirth = "Date of birth is required"
+    } else if (!ageValidate(values.dateOfBirth)) {
+        errors.dob = true
+    }
+
+    if (!values.isCheck) {
+        errors.isCheck = true
+    }
+
+    return errors;
+
+}
+
+
+
+
 
 export const checkPassLength = (password) => {
     if (password.length >= 8) {
@@ -81,7 +97,7 @@ export const validateEmailFormat = (email) => {
 }
 
 
-const ageValidate = (birthday) => {
+export const ageValidate = (birthday) => {
 
     let optimizedBirthday = birthday.replace(/-/g, "/");
     let newBirthday = new Date(optimizedBirthday);
@@ -92,7 +108,4 @@ const ageValidate = (birthday) => {
     return userAge < 18 ? false : true
 
 }
-
-
-
 

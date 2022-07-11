@@ -63,6 +63,7 @@
 
 .form__label {
     margin-bottom: 24px;
+    position: relative;
 }
 
 .form__label>label {
@@ -93,14 +94,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    transition: ease-in .2s;
 }
 
 .form__label input:hover {
     background: #E5E5E5;
+    transition: ease-in-out .3s;
 }
 
 .form input:focus {
-    box-shadow: 0 0 0 1px #2F80ED inset;
+    border: .0625rem solid #2F80ED;
     background: rgba(47, 128, 237, 0.1);
     outline: none;
 }
@@ -161,7 +164,7 @@
     line-height: 1.5rem;
     font-family: var(--main-font);
     font-size: 14px;
-    color: var(--gray-tuna);
+    /* color: var(--gray-tuna); */
     letter-spacing: 0.04em;
 }
 
@@ -194,7 +197,7 @@ input[type="checkbox"i] {
     color: currentColor;
     width: 1.5rem;
     height: 1.5rem;
-    border: .0625rem solid #AEAEB3;
+    /* border: .0625rem solid #AEAEB3; */
     border-radius: .5rem;
     margin-right: .75rem;
     transition: 120ms ease-in-out;
@@ -272,4 +275,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         font-size: 40px;
     }
 
+}
+
+
+/* ERROR MESSAGE */
+
+.error__message {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    font-size: 0.875rem;
+    padding: 0 4px;
+    color: #F47073;
+    font-family: var(--second-font);
 }

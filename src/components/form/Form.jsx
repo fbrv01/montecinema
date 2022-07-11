@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import FormEmail from "./FormEmail";
 import FormInfo from "./FormInfo";
 import Success from "./Success";
-import { validate } from "./formHelper";
+import { validateStep2, validateStep1 } from "./formHelper";
 import "./signup.css";
 
 const Form = () => {
 	const maxPage = 2;
 	const [page, setPage] = useState(1);
 	const [isSubmit, setIsSubmit] = useState(false);
-	const [formErrors, setFormErrors] = useState({});
+	const [formErrorsStep1, setFormErrorsStep1] = useState({});
+	const [formErrorsStep2, setFormErrorsStep2] = useState({});
 	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
@@ -19,6 +20,7 @@ const Form = () => {
 		isCheck: false
 	});
 
+
 	const formMainTitles = ["Ahoy you!", "Great!"];
 	const formSubTitles = ["Care to register?", "Now your name"];
 
@@ -27,20 +29,21 @@ const Form = () => {
 	};
 
 	const handleSubmit = (e) => {
+		console.log("submit");
+		console.log(formErrorsStep2);
 		e.preventDefault();
-		setFormErrors(validate(formData));
 		setIsSubmit(true);
 	};
 
 	//!! SEND FORM DATA TO BACK-END HERE !!//
 
 	useEffect(() => {
-		console.log("formErrors", formErrors);
-		if (Object.keys(formErrors).length === 0 && isSubmit) {
+
+		if (Object.keys(formErrorsStep2).length === 0 && Object.keys(formErrorsStep1).length === 0 && isSubmit) {
 			console.log(formData);
 			handleNextPage(page);
 		}
-	}, [formErrors]);
+	}, [formErrorsStep2,formErrorsStep1]);
 
 	const pageDisplay = () => {
 		switch (page) {
@@ -51,7 +54,8 @@ const Form = () => {
 						setFormData={setFormData}
 						handleNextPage={handleNextPage}
 						page={page}
-						formErrors={formErrors}
+						formErrorsStep1={formErrorsStep1}
+						setFormErrorsStep1={setFormErrorsStep1}
 					/>
 				);
 
@@ -60,7 +64,10 @@ const Form = () => {
 					<FormInfo
 						formData={formData}
 						setFormData={setFormData}
-						formErrors={formErrors}
+						handleNextPage={handleNextPage}
+						page={page}
+						formErrorsStep2={formErrorsStep2}
+						setFormErrorsStep2={setFormErrorsStep2}
 					/>
 				);
 			default:

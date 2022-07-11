@@ -1,6 +1,6 @@
 .main {
-/*     background: lightblue; */
     min-height: calc(100vh - 98px);
+    padding: 64px 0;
     display: flex;
     flex-direction: column;
     align-items: center;

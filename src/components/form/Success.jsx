@@ -5,7 +5,7 @@ const Success = ({ formData }) => {
 		<div className="form__success-message">
 			<h4>Good job {formData.firstname}</h4>
 			<p>We have sent you an email to <span className="--bold">{formData.email}</span>.<br/>Make sure to click the link from the message to activate your account.</p>
-			<button className="button">Go to homepage</button>
+			<a href="./" className="button">Go to homepage</a>
 		</div>
 	);
 };

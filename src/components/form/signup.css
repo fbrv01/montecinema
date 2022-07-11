@@ -100,7 +100,7 @@
 }
 
 .form input:focus {
-    border: .0625rem solid #2F80ED;
+    box-shadow: 0 0 0 1px #2F80ED inset;
     background: rgba(47, 128, 237, 0.1);
     outline: none;
 }

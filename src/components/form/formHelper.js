@@ -5,6 +5,7 @@ export let checkPassword = {
 }
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^/s@]{2,}$/i;
+const nameRegex = /^[\p{L} ,.'-]+$/u;
 
 
 export const validate = (values) => {
@@ -21,11 +22,16 @@ export const validate = (values) => {
     }
 
     if (!values.firstname) {
-        errors.firstname = "First name is required !"
+        errors.firstname = "firstname is required!";
+    } else if (!nameRegex.test(values.firstname)) {
+        errors.firstname = "First name with valid format is required! !";
     }
 
+
     if (!values.lastname) {
-        errors.lastname = "Last name is required !"
+        errors.lastname = "lastname is required!";
+    }      else if (!nameRegex.test(values.lastname)) {
+        errors.lastname = "Last name with valid format is required! !";
     }
 
     if (!values.dateOfBirth) {
@@ -86,3 +92,7 @@ const ageValidate = (birthday) => {
     return userAge < 18 ? false : true
 
 }
+
+
+
+

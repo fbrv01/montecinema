@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import FormEmail from './FormEmail';
 import FormInfo from './FormInfo';
 import Success from './Success';
-import { validateStep2, validateStep1 } from './formHelper';
 import './signup.css';
 
 const Form = () => {
@@ -43,7 +42,7 @@ const Form = () => {
 			console.log(formData);
 			handleNextPage(page);
 		}
-	}, [formErrorsStep2,formErrorsStep1]);
+	});
 
 	const pageDisplay = () => {
 		switch (page) {

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {
   validateStep1,
-  validateEmailFormat,
   validatePassword,
   checkPassLength,
   checkPassAlphabet,
   checkPassDigit,
 } from './formHelper';
 import eye from '../../medias/elements/eye.png';
+import { colors } from '../constants/colors';
 
 const FormEmail = ({
   formData,
@@ -19,19 +19,13 @@ const FormEmail = ({
 }) => {
   const [seePassword, setSeePassword] = useState(false);
 
-  const colors = {
-    gray: '#343541',
-    green: '#27AE60',
-    red: '#EC1115',
-  };
-
   return (
     <>
       <div className='form__label'>
         <label htmlFor=''>Email</label>
         <input
           style={{
-            border: formErrorsStep1.email ? '1px solid #EC1115' : 'none',
+            border: formErrorsStep1.email ? `1px solid ${colors.gray}` : 'none',
           }}
           type='text'
           placeholder='Something ending with monterail.com'
@@ -47,7 +41,7 @@ const FormEmail = ({
             style={{
               border:
                 formErrorsStep1.password || formErrorsStep1.passwords
-                  ? '1px solid #EC1115'
+                  ? `1px solid ${colors.red}`
                   : 'none',
             }}
             id='form__password-input'

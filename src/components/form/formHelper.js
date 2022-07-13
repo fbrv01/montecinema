@@ -7,7 +7,6 @@ export let checkPassword = {
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^/s@]{2,}$/i;
 const nameRegex = /^[\p{L} ,.'-]+$/u;
 
-
 export const validateStep1 = (values) => {
     const errors = {};
 
@@ -26,7 +25,6 @@ export const validateStep1 = (values) => {
     }
 
     return errors;
-
 }
 
 export const validateStep2 = (values) => {
@@ -50,21 +48,23 @@ export const validateStep2 = (values) => {
         errors.dateOfBirth = 'Date of birth is required'
     } else if (!ageValidate(values.dateOfBirth)) {
         errors.dob = true
-    }
+    } 
 
     if (!values.isCheck) {
         errors.isCheck = true
     }
 
     return errors;
-
 }
-
 
 export const checkPassLength = (password) => {
     if (password.length >= 8) {
         checkPassword.passwordLength = true
         return true
+    }
+    else {
+        checkPassword.passwordLength = false
+        return false
     }
 }
 
@@ -73,6 +73,10 @@ export const checkPassAlphabet = (password) => {
         checkPassword.passwordAlphabet = true
         return true;
     }
+    else {
+        checkPassword.passwordAlphabet = false
+        return false
+    }
 }
 
 export const checkPassDigit = (password) => {
@@ -80,8 +84,11 @@ export const checkPassDigit = (password) => {
         checkPassword.passwordDigit = true
         return true
     }
+    else {
+        checkPassword.passwordDigit = false
+        return false
+    }
 }
-
 
 export const validatePassword = () => {
     return checkPassword.passwordLength && checkPassword.passwordAlphabet &&  checkPassword.passwordDigit
@@ -90,7 +97,6 @@ export const validatePassword = () => {
 export const validateEmailFormat = (email) => {
     return emailRegex.test(email)
 }
-
 
 export const ageValidate = (birthday) => {
 
@@ -101,6 +107,4 @@ export const ageValidate = (birthday) => {
     let userAge = ~~((Date.now(currentDate) - newBirthday) / (31557600000))
 
     return userAge < 18 ? false : true
-
 }
-

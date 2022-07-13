@@ -5,6 +5,8 @@ import {
   checkPassLength,
   checkPassAlphabet,
   checkPassDigit,
+  validateEmailFormat
+
 } from './formHelper';
 import eye from '../../medias/elements/eye.png';
 import { colors } from '../constants/colors';
@@ -107,7 +109,7 @@ const FormEmail = ({
         <button
           className='button'
           onClick={() => {
-            if (validatePassword() && formData.email !== '') {
+            if (validatePassword() && validateEmailFormat(formData.email) && formData.email !== '') {
               handleNextPage(page);
             } else {
               setFormErrorsStep1(validateStep1(formData));

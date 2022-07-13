@@ -12,13 +12,13 @@ export const validateStep1 = (values) => {
     const errors = {};
 
     if (!values.email) {
-        errors.email = "Email is required";
+        errors.email = 'Email is required';
     } else if (!emailRegex.test(values.email)) {
-        errors.email = "Email with valid format is required"
+        errors.email = 'Email with valid format is required'
     }
 
     if (!values.password) {
-        errors.password = "Password is required"
+        errors.password = 'Password is required'
     } 
     
     else if (!checkPassLength(values.password) || !checkPassAlphabet(values.password) || !checkPassDigit(values.password)) {
@@ -34,20 +34,20 @@ export const validateStep2 = (values) => {
     const errors = {};
 
     if (!values.firstname) {
-        errors.firstname = "First name is required!";
+        errors.firstname = 'First name is required!';
 
     } else if (!nameRegex.test(values.firstname)) {
-        errors.firstname = "First name with valid format is required";
+        errors.firstname = 'First name with valid format is required';
     }
 
     if (!values.lastname) {
-        errors.lastname = "Last name is required!";
+        errors.lastname = 'Last name is required!';
     }      else if (!nameRegex.test(values.lastname)) {
-        errors.lastname = "Last name with valid format is required";
+        errors.lastname = 'Last name with valid format is required';
     }
 
     if (!values.dateOfBirth) {
-        errors.dateOfBirth = "Date of birth is required"
+        errors.dateOfBirth = 'Date of birth is required'
     } else if (!ageValidate(values.dateOfBirth)) {
         errors.dob = true
     }
@@ -61,16 +61,12 @@ export const validateStep2 = (values) => {
 }
 
 
-
-
-
 export const checkPassLength = (password) => {
     if (password.length >= 8) {
         checkPassword.passwordLength = true
         return true
     }
 }
-
 
 export const checkPassAlphabet = (password) => {
     if (password.length >= 1 && password.match(/[a-z]/i)) {
@@ -91,7 +87,6 @@ export const validatePassword = () => {
     return checkPassword.passwordLength && checkPassword.passwordAlphabet &&  checkPassword.passwordDigit
 }
 
-
 export const validateEmailFormat = (email) => {
     return emailRegex.test(email)
 }
@@ -99,7 +94,7 @@ export const validateEmailFormat = (email) => {
 
 export const ageValidate = (birthday) => {
 
-    let optimizedBirthday = birthday.replace(/-/g, "/");
+    let optimizedBirthday = birthday.replace(/-/g, '/');
     let newBirthday = new Date(optimizedBirthday);
 
     let currentDate = new Date().toJSON().slice(0, 10);

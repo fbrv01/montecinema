@@ -5,7 +5,7 @@ import './header.css'
 const Header = () => {
   return (
     <header className='header'>
-      <a href="./"><img src={logo} alt='logo' /></a>
+      <a href='./'><img src={logo} alt='logo' /></a>
       <span className='header__message'>Developed with ❤️ by Monterail</span>
     </header>
   )

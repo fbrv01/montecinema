@@ -1,5 +1,5 @@
-import React from "react";
-import { validateStep2, ageValidate } from "./formHelper";
+import React from 'react';
+import { validateStep2, ageValidate } from './formHelper';
 
 const FormInfo = ({
   formData,
@@ -11,92 +11,92 @@ const FormInfo = ({
 }) => {
   return (
     <>
-      <div className="form__label">
-        <label htmlFor="">Firstname</label>
+      <div className='form__label'>
+        <label htmlFor=''>Firstname</label>
         <input
           style={{
-            border: formErrorsStep2.firstname ? "1px solid #EC1115" : "none",
+            border: formErrorsStep2.firstname ? '1px solid #EC1115' : 'none',
           }}
-          type="text"
-          placeholder="e.g Jessica"
+          type='text'
+          placeholder='e.g Jessica'
           value={formData.firstname}
           onChange={(e) =>
             setFormData({ ...formData, firstname: e.target.value })
           }
         />
-        <p className="error__message">{formErrorsStep2.firstname}</p>
+        <p className='error__message'>{formErrorsStep2.firstname}</p>
       </div>
-      <div className="form__label">
-        <label htmlFor="">Lastname</label>
+      <div className='form__label'>
+        <label htmlFor=''>Lastname</label>
         <input
-          style={{ border: formErrorsStep2.lastname ? "1px solid #EC1115" : "none" }}
-          type="text"
-          placeholder="e.g Walton"
+          style={{ border: formErrorsStep2.lastname ? '1px solid #EC1115' : 'none' }}
+          type='text'
+          placeholder='e.g Walton'
           value={formData.lastname}
           onChange={(e) =>
             setFormData({ ...formData, lastname: e.target.value })
           }
         />
-        <p className="error__message">{formErrorsStep2.lastname}</p>
+        <p className='error__message'>{formErrorsStep2.lastname}</p>
       </div>
-      <div className="form__label">
-        <label htmlFor="">Date of birth</label>
+      <div className='form__label'>
+        <label htmlFor=''>Date of birth</label>
         <input
           style={{
             border:
 			formErrorsStep2.dateOfBirth || formErrorsStep2.dob
-                ? "1px solid #EC1115"
-                : "none",
+                ? '1px solid #EC1115'
+                : 'none',
           }}
-          type="date"
+          type='date'
           value={formData.dateOfBirth}
           onChange={(e) =>
             setFormData({ ...formData, dateOfBirth: e.target.value })
           }
         />
-        <p className="error__message">{formErrorsStep2.dateOfBirth}</p>
+        <p className='error__message'>{formErrorsStep2.dateOfBirth}</p>
       </div>
-      {/* 0.0625rem solid #AEAEB3; */}
+
       <aside>
-        <p style={{ color: formErrorsStep2.dob ? "#EC1115" : "var(--gray-tuna)" }}>
+        <p style={{ color: formErrorsStep2.dob ? '#EC1115' : 'var(--gray-tuna)' }}>
           You should be minimum 18 years old
         </p>
         <span>
           <input
             style={{
               border: formErrorsStep2.isCheck
-                ? "0.0625rem solid #EC1115"
-                : "0.0625rem solid #AEAEB3",
+                ? '0.0625rem solid #EC1115'
+                : '0.0625rem solid #AEAEB3',
             }}
-            type="checkbox"
-            id="policy"
-            name="policy"
+            type='checkbox'
+            id='policy'
+            name='policy'
             onChange={(e) =>
               setFormData({ ...formData, isCheck: e.target.checked })
             }
           />
           <label
-            htmlFor="policy"
-            style={{ color: formErrorsStep2.isCheck ? "#EC1115" : "#000" }}
+            htmlFor='policy'
+            style={{ color: formErrorsStep2.isCheck ? '#EC1115' : '#000' }}
           >
             I accept <span>Privacy Policy</span>
           </label>
         </span>
       </aside>
 
-      <div className="form__buttons">
-        <a className="button--login" href="./">
+      <div className='form__buttons'>
+        <a className='button--login' href='./'>
           Log in instead
         </a>
         <button
           onClick={() => {
-            if (formData.firstname !== "" && formData.lastname !== "" && formData.dateOfBirth!=="" && formData.isCheck && ageValidate(formData.dateOfBirth) ){
+            if (formData.firstname !== '' && formData.lastname !== '' && formData.dateOfBirth!=='' && formData.isCheck && ageValidate(formData.dateOfBirth) ){
               handleNextPage(page);
             } else {
 				setFormErrorsStep2(validateStep2(formData));
             }
           }}
-          className="button"
+          className='button'
         >
           Register
         </button>

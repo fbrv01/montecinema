@@ -1,21 +1,21 @@
-import React from "react";
-import { useState } from "react";
-import "./signup.css";
-import eye from "../../medias/elements/eye.png";
+import React from 'react';
+import { useState } from 'react';
+import './signup.css';
+import eye from '../../medias/elements/eye.png';
 
 const SignUpEmail = () => {
 
 	const colors = {
-		gray : "#343541",
-		green : "#27AE60",
-		red : "#EC1115"
+		gray : '#343541',
+		green : '#27AE60',
+		red : '#EC1115'
 	}
 
 	const [nextStep, setNextStep] = useState(false);
 	const [seePassword, setSeePassword] = useState(false);
 
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
 	const checkPassLength = (str) => {
 		return str.length >= 8;
@@ -30,32 +30,32 @@ const SignUpEmail = () => {
 	};
 
 	return (
-		<form className="form">
-			<div className="form__label">
-				<label htmlFor="">EMAIL</label>
+		<form className='form'>
+			<div className='form__label'>
+				<label htmlFor=''>EMAIL</label>
 				<input
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
-					type="email"
-					placeholder="Something ending up with monterail.com"
+					type='email'
+					placeholder='Something ending up with monterail.com'
 				/>
 			</div>
-			<div className="form__label">
-				<label htmlFor="">PASSWORD</label>
+			<div className='form__label'>
+				<label htmlFor=''>PASSWORD</label>
 
-				<span id="form__password-frame">
+				<span id='form__password-frame'>
 					<input
-						id="form__password-input"
+						id='form__password-input'
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
-						type={seePassword ? "text" : "password"}
-						placeholder="Enter your password"
+						type={seePassword ? 'text' : 'password'}
+						placeholder='Enter your password'
 					/>
 					<img
 						src={eye}
-						id="form__password-input-eye"
+						id='form__password-input-eye'
 						onClick={() => setSeePassword(!seePassword)}
-						alt="show password"
+						alt='show password'
 					/>
 				</span>
 			</div>
@@ -64,7 +64,7 @@ const SignUpEmail = () => {
 				<p
 					style={{
 						color:
-							password === ""
+							password === ''
 								? colors.gray
 								: checkPassLength(password)
 								? colors.green
@@ -76,7 +76,7 @@ const SignUpEmail = () => {
 				<p
 					style={{
 						color:
-							password === ""
+							password === ''
 								? colors.gray
 								: checkPassAlphabet(password)
 								? colors.green
@@ -88,7 +88,7 @@ const SignUpEmail = () => {
 				<p
 					style={{
 						color:
-							password === ""
+							password === ''
 								? colors.gray
 								: checkPassDigit(password)
 								? colors.green
@@ -99,9 +99,9 @@ const SignUpEmail = () => {
 				</p>
 			</aside>
 			
-			<div className="form__button">
-				<a className="button--login">Log in instead</a>
-				<button className="button">Next step</button>
+			<div className='form__button'>
+				<a className='button--login'>Log in instead</a>
+				<button className='button'>Next step</button>
 			</div>
 		</form>
 	);

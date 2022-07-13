@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import FormEmail from "./FormEmail";
-import FormInfo from "./FormInfo";
-import Success from "./Success";
-import { validateStep2, validateStep1 } from "./formHelper";
-import "./signup.css";
+import React, { useState, useEffect } from 'react';
+import FormEmail from './FormEmail';
+import FormInfo from './FormInfo';
+import Success from './Success';
+import { validateStep2, validateStep1 } from './formHelper';
+import './signup.css';
 
 const Form = () => {
 	const maxPage = 2;
@@ -12,24 +12,24 @@ const Form = () => {
 	const [formErrorsStep1, setFormErrorsStep1] = useState({});
 	const [formErrorsStep2, setFormErrorsStep2] = useState({});
 	const [formData, setFormData] = useState({
-		email: "",
-		password: "",
-		firstname: "",
-		lastname: "",
-		dateOfBirth: "",
+		email: '',
+		password: '',
+		firstname: '',
+		lastname: '',
+		dateOfBirth: '',
 		isCheck: false
 	});
 
 
-	const formMainTitles = ["Ahoy you!", "Great!"];
-	const formSubTitles = ["Care to register?", "Now your name"];
+	const formMainTitles = ['Ahoy you!', 'Great!'];
+	const formSubTitles = ['Care to register?', 'Now your name'];
 
 	const handleNextPage = (currentPage) => {
 		return setPage(currentPage + 1);
 	};
 
 	const handleSubmit = (e) => {
-		console.log("submit");
+		console.log('submit');
 		console.log(formErrorsStep2);
 		e.preventDefault();
 		setIsSubmit(true);
@@ -76,16 +76,16 @@ const Form = () => {
 	};
 
 	return (
-		<section className="register">
+		<section className='register'>
 			{page > maxPage ? (
 				<Success formData={formData} />
 			) : (
 				<>
-					<div className="form__message">
+					<div className='form__message'>
 						<h4>{formMainTitles[page - 1]}</h4>
 						<h4>{formSubTitles[page - 1]}</h4>
 					</div>
-					<form onSubmit={handleSubmit} className="form">
+					<form onSubmit={handleSubmit} className='form'>
 						{pageDisplay()}
 					</form>
 				</>

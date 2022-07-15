@@ -6,7 +6,6 @@ import {
   checkPassAlphabet,
   checkPassDigit,
   validateEmailFormat
-
 } from './formHelper';
 import eye from '../../medias/elements/eye.png';
 import { colors } from '../constants/colors';
@@ -23,9 +22,10 @@ const FormEmail = ({
 
   return (
     <>
-      <div className='form__label'>
+      <div className='form__label' data-testid='form-email'>
         <label htmlFor=''>Email</label>
         <input
+          data-testid='form-email__input-email'
           style={{
             border: formErrorsStep1.email ? `1px solid ${colors.gray}` : 'none',
           }}
@@ -40,6 +40,7 @@ const FormEmail = ({
         <label htmlFor=''>Password</label>
         <span id='form__password-frame'>
           <input
+            data-testid='form-email__input-password'
             style={{
               border:
                 formErrorsStep1.password || formErrorsStep1.passwords
@@ -50,9 +51,7 @@ const FormEmail = ({
             type={seePassword ? 'text' : 'password'}
             placeholder='Enter your password'
             value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
           />
           <img
             src={eye}

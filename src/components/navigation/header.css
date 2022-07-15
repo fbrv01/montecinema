@@ -15,16 +15,14 @@
     line-height: 21px;
     text-align: right;
     letter-spacing: 0.03em;
-    text-transform: uppercase;
 }
 
 @media screen and (max-width: 600px) {
-
     .header {
         justify-content: center;
     }
-    
+
     .header__message {
       display:none;
     }
-  }
+}

@@ -19,7 +19,6 @@ const Form = () => {
 		isCheck: false
 	});
 
-
 	const formMainTitles = ['Ahoy you!', 'Great!'];
 	const formSubTitles = ['Care to register?', 'Now your name'];
 
@@ -28,8 +27,6 @@ const Form = () => {
 	};
 
 	const handleSubmit = (e) => {
-		console.log('submit');
-		console.log(formErrorsStep2);
 		e.preventDefault();
 		setIsSubmit(true);
 	};
@@ -37,9 +34,7 @@ const Form = () => {
 	//!! SEND FORM DATA TO BACK-END HERE !!//
 
 	useEffect(() => {
-
 		if (Object.keys(formErrorsStep2).length === 0 && Object.keys(formErrorsStep1).length === 0 && isSubmit) {
-			console.log(formData);
 			handleNextPage(page);
 		}
 	});
@@ -75,7 +70,7 @@ const Form = () => {
 	};
 
 	return (
-		<section className='register'>
+		<section className='register' data-testid='register'>
 			{page > maxPage ? (
 				<Success formData={formData} />
 			) : (

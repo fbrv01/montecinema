@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { validateStep2, ageValidate } from './formHelper';
 
 const FormInfo = ({
@@ -9,11 +9,26 @@ const FormInfo = ({
   page,
   handleNextPage
 }) => {
+  const onRegister = useCallback(() => {
+    const isValid = formData.firstname !== ''
+      && formData.lastname !== ''
+      && formData.dateOfBirth !== ''
+      && formData.isCheck 
+      && ageValidate(formData.dateOfBirth);
+
+    if (isValid) {
+      handleNextPage(page);
+    } else {
+      setFormErrorsStep2(validateStep2(formData));
+    }
+  }, [formData, handleNextPage, page, setFormErrorsStep2]);
+
   return (
     <>
-      <div className='form__label'>
+      <div className='form__label' data-testid='form-info'>
         <label htmlFor=''>Firstname</label>
         <input
+          data-testid='form-info__input-firstname'
           style={{
             border: formErrorsStep2.firstname ? '1px solid #EC1115' : 'none',
           }}
@@ -29,6 +44,7 @@ const FormInfo = ({
       <div className='form__label'>
         <label htmlFor=''>Lastname</label>
         <input
+          data-testid='form-info__input-lastname'
           style={{ border: formErrorsStep2.lastname ? '1px solid #EC1115' : 'none' }}
           type='text'
           placeholder='e.g Walton'
@@ -42,9 +58,9 @@ const FormInfo = ({
       <div className='form__label'>
         <label htmlFor=''>Date of birth</label>
         <input
+          data-testid='form-info__input-dateOfBirth'
           style={{
-            border:
-			formErrorsStep2.dateOfBirth || formErrorsStep2.dob
+            border: formErrorsStep2.dateOfBirth || formErrorsStep2.dob
                 ? '1px solid #EC1115'
                 : 'none',
           }}
@@ -71,9 +87,7 @@ const FormInfo = ({
             type='checkbox'
             id='policy'
             name='policy'
-            onChange={(e) =>
-              setFormData({ ...formData, isCheck: e.target.checked })
-            }
+            onChange={(e) => setFormData({ ...formData, isCheck: e.target.checked })}
           />
           <label
             htmlFor='policy'
@@ -89,13 +103,7 @@ const FormInfo = ({
           Log in instead
         </a>
         <button
-          onClick={() => {
-            if (formData.firstname !== '' && formData.lastname !== '' && formData.dateOfBirth!=='' && formData.isCheck && ageValidate(formData.dateOfBirth) ){
-              handleNextPage(page);
-            } else {
-				setFormErrorsStep2(validateStep2(formData));
-            }
-          }}
+          onClick={onRegister}
           className='button'
         >
           Register

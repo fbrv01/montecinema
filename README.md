@@ -46,7 +46,13 @@ Start the server
 ```bash
   npm start
 ```
+## Running Tests
 
+To run tests, run the following command
+
+```bash
+  npm run test
+```
 ## Demo
 
 ![](https://github.com/fbrv01/montecinema/blob/main/demo.gif)

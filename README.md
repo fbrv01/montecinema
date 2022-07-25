@@ -1,9 +1,12 @@
+
 ![Logo](https://github.com/fbrv01/montecinema/blob/main/src/medias/logo.png)
+
 
 # Monte Cinema
 
 Two step registration form for Monte Cinema - online ticket booking application.
 No CSS and UI frameworks used.
+
 
 ## Features
 
@@ -20,6 +23,8 @@ Additional:
 - validation for birthday date (minimum 18 years old)
 - password visibility button toggle (shows/hides password)
 - require checking ‘I accept Privacy Policy’ checkbox
+
+
 
 ## Run Locally
 
@@ -46,6 +51,10 @@ Start the server
 ```bash
   npm start
 ```
+
+## Demo
+
+![](https://github.com/fbrv01/montecinema/blob/main/demo.gif)
 ## Running Tests
 
 To run tests, run the following command
@@ -53,9 +62,12 @@ To run tests, run the following command
 ```bash
   npm run test
 ```
-## Demo
 
-![](https://github.com/fbrv01/montecinema/blob/main/demo.gif)
+
+## To-do / known issues
+
+- fixing tiny edge cases
+
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/fbrv01/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/filip-bucholc/)
